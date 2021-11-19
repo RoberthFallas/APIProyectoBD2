@@ -1,45 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-  <persistence-unit name="org.bytesizebook.com.guide.boot_APIProyectoBD2_war_1.0-SNAPSHOTPU" transaction-type="RESOURCE_LOCAL">
-    <class>una.bd.apirestporyectobd2.model.PvNotasCred</class>
-    <class>una.bd.apirestporyectobd2.model.PvPagoFactura</class>
-    <class>una.bd.apirestporyectobd2.model.PvProveedores</class>
-    <class>una.bd.apirestporyectobd2.model.PvDescLiquidacion</class>
-    <class>una.bd.apirestporyectobd2.model.PvProductos</class>
-    <class>una.bd.apirestporyectobd2.model.PvFacturasVenta</class>
-    <class>una.bd.apirestporyectobd2.model.PvPromociones</class>
-    <class>una.bd.apirestporyectobd2.model.PvProdPromo</class>
-    <class>una.bd.apirestporyectobd2.model.PvAcciones</class>
-    <class>una.bd.apirestporyectobd2.model.PvAbonos</class>
-    <class>una.bd.apirestporyectobd2.model.PvSedes</class>
-    <class>una.bd.apirestporyectobd2.model.PvParametros</class>
-    <class>una.bd.apirestporyectobd2.model.PvMovimientos</class>
-    <class>una.bd.apirestporyectobd2.model.PvTiposPago</class>
-    <class>una.bd.apirestporyectobd2.model.PvDescuentos</class>
-    <class>una.bd.apirestporyectobd2.model.PvClientes</class>
-    <class>una.bd.apirestporyectobd2.model.PvCuentasCobrar</class>
-    <class>una.bd.apirestporyectobd2.model.PvCodigosBarras</class>
-    <class>una.bd.apirestporyectobd2.model.PvTipoPromocion</class>
-    <class>una.bd.apirestporyectobd2.model.PvPrecios</class>
-    <class>una.bd.apirestporyectobd2.model.PvAbonosVentas</class>
-    <class>una.bd.apirestporyectobd2.model.PvPadron</class>
-    <class>una.bd.apirestporyectobd2.model.PvCuentasPagar</class>
-    <class>una.bd.apirestporyectobd2.model.PvFacturasCompra</class>
-    <class>una.bd.apirestporyectobd2.model.PvBitacora</class>
-    <class>una.bd.apirestporyectobd2.model.PvContactosNotificacion</class>
-    <class>una.bd.apirestporyectobd2.model.PvInventarios</class>
-    <class>una.bd.apirestporyectobd2.model.PvCompania</class>
-    <class>una.bd.apirestporyectobd2.model.PvFamilias</class>
-    <class>una.bd.apirestporyectobd2.model.PvLimiteCredito</class>
-    <class>una.bd.apirestporyectobd2.model.PvRoles</class>
-    <class>una.bd.apirestporyectobd2.model.PvDetallFacCompra</class>
-    <class>una.bd.apirestporyectobd2.model.PvDetallFacVenta</class>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="1.0">
+    <persistence-unit name="Bd2PU" transaction-type="JTA">
+    <jta-data-source>jdbc/BDDataSource</jta-data-source>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
-    <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@192.168.1.12:1521:bduna"/>
-      <property name="javax.persistence.jdbc.user" value="rfallas"/>
-      <property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver"/>
-      <property name="javax.persistence.jdbc.password" value="oracle"/>
-    </properties>
+    <properties name="eclipselink.logging.level.sql" value="FINE"></properties>
+    <properties name="eclipselink.logging.paramerters" value="true"></properties>
+    <properties name="eclipselink.logging.logger" value="JavaLogger"></properties>
+    <properties name="eclipselink.logging.level" value="FINE"></properties>
   </persistence-unit>
 </persistence>
