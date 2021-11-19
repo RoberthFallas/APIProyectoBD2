@@ -7,10 +7,11 @@
 
 package una.bd.apirestporyectobd2.controller;
 
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.EJB;
-import javax.ws.rs.POST;
+import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -24,6 +25,7 @@ import una.bd.apirestporyectobd2.util.Respuesta;
  *
  * @author roberth
  */
+
 @Path("/ProductoController")
 public class ProductoController {
     
@@ -32,7 +34,7 @@ public class ProductoController {
     
     
     
-    @POST
+    @GET
     @Path("/findAll")
     @Produces(MediaType.APPLICATION_JSON)
     public Response findAll(){
@@ -42,7 +44,7 @@ public class ProductoController {
                 return Response.status(resp.getCodigoRespuesta().getValue()).entity(resp.getMensaje()).build();
             }
             
-            return Response.ok((ProductoDto) resp.getResultado("data")).build();
+            return Response.ok((List<ProductoDto>) resp.getResultado("data")).build();
         }catch(Exception ex){
             Logger.getLogger(ProductoController.class.getName()).log(Level.SEVERE, null, ex);
             return Response.status(CodigoRespuesta.ERROR_INTERNO.getValue()).entity("msj_serverError_NoDataBaseAcces").build();
