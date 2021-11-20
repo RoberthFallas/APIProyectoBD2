@@ -39,7 +39,7 @@ public class ProductoController {
     @Produces(MediaType.APPLICATION_JSON)
     public Response findAll(){
         try{
-            Respuesta resp = productoService.getAll();
+            Respuesta resp = productoService.getAll(); 
             if(!resp.getEstado()){
                 return Response.status(resp.getCodigoRespuesta().getValue()).entity(resp.getMensaje()).build();
             }

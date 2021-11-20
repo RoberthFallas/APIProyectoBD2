@@ -30,6 +30,7 @@ public class ApplicationConfig extends Application {
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
         resources.add(una.bd.apirestporyectobd2.controller.ProductoController.class);
+        resources.add(una.bd.apirestporyectobd2.controller.TiposPagoController.class);
     }
     
 }
