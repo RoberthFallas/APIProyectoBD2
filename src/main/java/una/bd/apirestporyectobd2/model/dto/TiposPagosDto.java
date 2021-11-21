@@ -6,36 +6,39 @@
 package una.bd.apirestporyectobd2.model.dto;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import una.bd.apirestporyectobd2.model.PvPagoFactura;
 import una.bd.apirestporyectobd2.model.PvTiposPago;
 
 /**
  *
  * @author 50671
  */
-
 @XmlRootElement(name = "TiposPagosDto")
 @XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
 public class TiposPagosDto {
 
-    private BigDecimal tipoPagoId;
+    private Integer tipoPagoId;
     private String tipoPagoNombre;
     private String tipoDescripcion;
+   // private List<PvPagoFactura> tipoPagoFacturas;
 
     public TiposPagosDto() {
-       
+
     }
 
-    
     public TiposPagosDto(PvTiposPago p) {
         tipoPagoId = p.getTipId();
         tipoPagoNombre = p.getTipNombre();
         tipoDescripcion = p.getTipDescripcion();
     }
 
-    public BigDecimal getTipoPagoId() {
+
+    public Integer getTipoPagoId() {
         return tipoPagoId;
     }
 
@@ -43,11 +46,12 @@ public class TiposPagosDto {
         return tipoPagoNombre;
     }
 
-    public String getTipoDescripcion() {
+    public String getTipoDescripcion() { 
+        
         return tipoDescripcion;
     }
 
-    public void setTipoPagoId(BigDecimal tipoPagoId) {
+    public void setTipoPagoId(Integer tipoPagoId) {
         this.tipoPagoId = tipoPagoId;
     }
 
@@ -58,7 +62,5 @@ public class TiposPagosDto {
     public void setTipoDescripcion(String tipoDescripcion) {
         this.tipoDescripcion = tipoDescripcion;
     }
-    
-    
-    
+
 }

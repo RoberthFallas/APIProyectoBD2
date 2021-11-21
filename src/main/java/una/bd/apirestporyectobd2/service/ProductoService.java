@@ -31,8 +31,6 @@ public class ProductoService {
     @PersistenceContext(unitName = "Bd2PU")
     EntityManager em;
     
-    
-    
     public Respuesta getAll(){
         try{
             Query query = em.createNamedQuery("PvProductos.findAll", PvProductos.class);

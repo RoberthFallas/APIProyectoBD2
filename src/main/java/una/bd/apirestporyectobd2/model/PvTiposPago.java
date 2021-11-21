@@ -7,15 +7,19 @@ package una.bd.apirestporyectobd2.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -40,10 +44,12 @@ public class PvTiposPago implements Serializable {
     private static final long serialVersionUID = 1L;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
+    @SequenceGenerator(name = "AntHGen", sequenceName = "pgerardo.SEC_TIPO_PAGO", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "AntHGen")
     @Basic(optional = false)
     @NotNull
     @Column(name = "TIP_ID")
-    private BigDecimal tipId;
+    private Integer tipId;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 30)
@@ -58,20 +64,20 @@ public class PvTiposPago implements Serializable {
     public PvTiposPago() {
     }
 
-    public PvTiposPago(BigDecimal tipId) {
+    public PvTiposPago(Integer tipId) {
         this.tipId = tipId;
     }
 
-    public PvTiposPago(BigDecimal tipId, String tipNombre) {
+    public PvTiposPago(Integer tipId, String tipNombre) {
         this.tipId = tipId;
         this.tipNombre = tipNombre;
     }
 
-    public BigDecimal getTipId() {
+    public Integer getTipId() {
         return tipId;
     }
 
-    public void setTipId(BigDecimal tipId) {
+    public void setTipId(Integer tipId) {
         this.tipId = tipId;
     }
 

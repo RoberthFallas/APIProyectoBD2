@@ -21,6 +21,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import una.bd.apirestporyectobd2.model.dto.TipoPromocionDto;
 
 /**
  *
@@ -42,7 +43,7 @@ public class PvTipoPromocion implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "TIP_ID")
-    private BigDecimal tipId;
+    private Integer tipId;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 32)
@@ -59,21 +60,26 @@ public class PvTipoPromocion implements Serializable {
     public PvTipoPromocion() {
     }
 
-    public PvTipoPromocion(BigDecimal tipId) {
+    public PvTipoPromocion(Integer tipId) {
         this.tipId = tipId;
     }
 
-    public PvTipoPromocion(BigDecimal tipId, String tipNombre, String tipDescripcion) {
+    public PvTipoPromocion(Integer tipId, String tipNombre, String tipDescripcion) {
         this.tipId = tipId;
         this.tipNombre = tipNombre;
         this.tipDescripcion = tipDescripcion;
     }
 
-    public BigDecimal getTipId() {
+    public PvTipoPromocion(TipoPromocionDto tp) {
+        this.tipId = tp.getTpId();
+        this.guardarPromocion(tp);
+    }
+
+    public Integer getTipId() {
         return tipId;
     }
 
-    public void setTipId(BigDecimal tipId) {
+    public void setTipId(Integer tipId) {
         this.tipId = tipId;
     }
 
@@ -126,5 +132,11 @@ public class PvTipoPromocion implements Serializable {
     public String toString() {
         return "una.bd.apirestporyectobd2.model.PvTipoPromocion[ tipId=" + tipId + " ]";
     }
-    
+
+    public void guardarPromocion(TipoPromocionDto tp) {
+        this.tipNombre = tp.getTpNombre();
+        this.tipDescripcion = tp.getTpDescripcion();
+
+    }
+
 }
